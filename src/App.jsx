@@ -1,56 +1,69 @@
-import  { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { useActionState } from 'react';
+// import Counter1 from './component/counter1'
+// import UseStateExample2 from './component/userstate_example2'
+// import UserReducerExample from './component/userreducer_example'
+// import SetStateDemo from './component/usereducer_setstate'
 
-function App() {
-  const [count, setCount] = useState(0);
-  const [error, setError] = useState("");
+import {useState} from 'react';
+
+import Greeting from './component/Greeting'
+import StarRating from './component/star_rating';
 
 
-  console.log(new Date());
+export default function App() {
+  const [rating, setRating] = useState(2.5);
 
-  // return React.createElement("div", {
-  //   className: "app"
-  //  }, "Hello World, React!");
+  const [articles, setArticles] = useState([
+    {id: 1, title: "Article 1", rating: 2.5, color: "green"},
+    {id: 2, title: "Article 2", rating: 4.5, color: "blue"},
+    {id: 3, title: "Article 3", rating: 3.5, color: "purple"},
+  ]);
 
-  const increment = (e) => {
-    if (error.trim() != "") {
-      setError("");
-    }
-    // setCount(count + 1);
-    // setCount(count + 1);
-    // setCount(count + 1);
+  function action(message) {
+    alert(message);
+  }
 
-    setCount((prevState) => {
-      return prevState + 1;
+  const handleChange = (value) => {
+    alert(value);
+    setRating(value);
+  }
+
+  const articleRatingChange = (id, ratingValue) => {
+    //alert(`${id}-${ratingValue}`);
+    let updatedArticles = articles.map(a => {
+      if (a.id == id) {
+        a.rating = ratingValue;
+      }
+      return a;
     });
+    
+    setArticles([...updatedArticles]);
   }
+  
+  
+  return(
+    <div>
+      <Greeting message="Hello World!" priority="High" callback = {action}/>
+      <StarRating value={rating} count={5} size={40} activeColor={'red'} inactiveColor = {'#ddd'} onChange={handleChange} />
+      <StarRating value={rating} count= {10} size={40} activeColor={'blue'} inactiveColor = {'#ddd'} onChange={handleChange} />
+      <StarRating value={rating} count= {10}  activeColor={'yellow'} onChange={handleChange} />
 
-  const decrement = (e) => {
-    if (count == 0) {
-      setError("You cannot order negative qty!");
-      return;
-    }
-    setCount((prevState) => {
-      return prevState - 1;
-    })
-  }
+      {
+        articles.map(a => {
+          return (
+              <div key={a.id}>
+                  <h2>{a.title}</h2>
+                  <StarRating 
+                    count={5}
+                    size={30}
+                    value={a.rating}
+                    activeColor ={a.color}
+                    inactiveColor={'#ddd'}
+                    onChange={(value) => {articleRatingChange(a.id, value)}}                     /> 
+              </div>
+          )
+        })
+      }
 
-  return (
-    <>
-      <h1>Counter App</h1>
-      {count}
-      <div>
-        <button onClick={decrement}>-</button>
-        <button onClick={increment}>+</button>
-      </div>
-      {error.length > 0 && <div className="error">
-        {error}  
-      </div>}
-    </>
+    </div>
   )
 }
-
-export default App
