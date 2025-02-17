@@ -7,10 +7,16 @@ import {useState} from 'react';
 
 import Greeting from './component/Greeting'
 import StarRating from './component/star_rating';
+import TestUseEffect from './component/test-useeffect';
+import TestUseEffectUnMount from './component/useeffect-unmount';
+import ControlledInputs from './component/controlled';
+import UnControlledInputs from './component/uncontrolled';
+import FormHookTest from './component/form-hook-test';
 
 
 export default function App() {
   const [rating, setRating] = useState(2.5);
+  const [show, toggleVisibility] = useState(true);
 
   const [articles, setArticles] = useState([
     {id: 1, title: "Article 1", rating: 2.5, color: "green"},
@@ -39,10 +45,25 @@ export default function App() {
     setArticles([...updatedArticles]);
   }
   
+  const onCountChange = (count) => {
+    alert(count);
+    if (count <= 0) {
+      toggleVisibility(!show);
+    }
+  }
   
   return(
     <div>
-      <Greeting message="Hello World!" priority="High" callback = {action}/>
+      <FormHookTest />
+      {/* <UnControlledInputs /> */}
+      {/* <ControlledInputs /> */}
+
+      {/* <TestUseEffect /> */}
+      {/* {
+        <TestUseEffectUnMount onCountChange = {onCountChange}/>
+      } */}
+      
+      {/* <Greeting message="Hello World!" priority="High" callback = {action}/>
       <StarRating value={rating} count={5} size={40} activeColor={'red'} inactiveColor = {'#ddd'} onChange={handleChange} />
       <StarRating value={rating} count= {10} size={40} activeColor={'blue'} inactiveColor = {'#ddd'} onChange={handleChange} />
       <StarRating value={rating} count= {10}  activeColor={'yellow'} onChange={handleChange} />
@@ -62,7 +83,7 @@ export default function App() {
               </div>
           )
         })
-      }
+      } */}
 
     </div>
   )
