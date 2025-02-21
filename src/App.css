@@ -45,3 +45,9 @@
   background-color: red;
   color: white;
 }
+
+
+.completed {
+  text-decoration: line-through;
+  color: green;
+}

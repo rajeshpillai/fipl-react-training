@@ -13,6 +13,7 @@ import ControlledInputs from './component/controlled';
 import UnControlledInputs from './component/uncontrolled';
 import FormHookTest from './component/form-hook-test';
 import TagFeature from './features/tag-feature';
+import TodoApp from './features/todo-app';
 
 
 export default function App() {
@@ -55,7 +56,8 @@ export default function App() {
   
   return(
     <div>
-      <TagFeature/>
+      <TodoApp />
+      {/* <TagFeature/> */}
       {/* <FormHookTest /> */}
       {/* <UnControlledInputs /> */}
       {/* <ControlledInputs /> */}

@@ -20,7 +20,8 @@ export default function TagFeature() {
       return (t !== tag);
     });
 
-    setTags([...remainingTags]);  // Use function syntax
+    //setTags([...remainingTags]);  // Use function syntax
+    setTags(remainingTags);
   }
 
   return (
