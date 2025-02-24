@@ -14,7 +14,8 @@ import UnControlledInputs from './component/uncontrolled';
 import FormHookTest from './component/form-hook-test';
 import TagFeature from './features/tag-feature';
 import TodoApp from './features/todo-app';
-
+import Test from './features/test';
+import TodoContextApp from './features/todo-context-app';
 
 export default function App() {
   const [rating, setRating] = useState(2.5);
@@ -56,7 +57,9 @@ export default function App() {
   
   return(
     <div>
-      <TodoApp />
+      <TodoContextApp />
+      {/* <Test /> */}
+      {/* <TodoApp /> */}
       {/* <TagFeature/> */}
       {/* <FormHookTest /> */}
       {/* <UnControlledInputs /> */}
