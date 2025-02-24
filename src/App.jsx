@@ -16,6 +16,7 @@ import TagFeature from './features/tag-feature';
 import TodoApp from './features/todo-app';
 import Test from './features/test';
 import TodoContextApp from './features/todo-context-app';
+import CardDemo from './features/card-demo';
 
 export default function App() {
   const [rating, setRating] = useState(2.5);
@@ -57,7 +58,8 @@ export default function App() {
   
   return(
     <div>
-      <TodoContextApp />
+      <CardDemo />
+      {/* <TodoContextApp /> */}
       {/* <Test /> */}
       {/* <TodoApp /> */}
       {/* <TagFeature/> */}

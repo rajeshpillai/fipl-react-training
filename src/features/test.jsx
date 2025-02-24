@@ -21,6 +21,7 @@ export default function Test() {
   return (
     <div>
       Test Page
+    
       <Form onSubmit = {handleSubmit}>
         <FormText onTextChange = {onTextChange}>
           <label>First Name: </label>
