@@ -18,6 +18,9 @@ import Test from './features/test';
 import TodoContextApp from './features/todo-context-app';
 import CardDemo from './features/card-demo';
 import RefDemo from './features/ref-demo';
+import MemoDemo1 from './features/memo-demo-1';
+import MemoDemo2 from './features/memo-demo-2';
+import MemoDemo3 from './features/memo-demo-3';
 
 export default function App() {
   const [rating, setRating] = useState(2.5);
@@ -59,7 +62,9 @@ export default function App() {
   
   return(
     <div>
-      <RefDemo />
+      <MemoDemo3 />
+      {/* <MemoDemo2/> */}
+      {/* <RefDemo /> */}
       {/* <CardDemo /> */}
       {/* <TodoContextApp /> */}
       {/* <Test /> */}
