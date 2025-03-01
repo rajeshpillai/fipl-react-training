@@ -21,6 +21,9 @@ import RefDemo from './features/ref-demo';
 import MemoDemo1 from './features/memo-demo-1';
 import MemoDemo2 from './features/memo-demo-2';
 import MemoDemo3 from './features/memo-demo-3';
+import UseCallbackDemo1 from './features/use-callback-demo-1';
+import UseCallbackDemo2 from './features/use-callback-demo-2';
+import RenderPropsDemo from './features/render-props-demo';
 
 export default function App() {
   const [rating, setRating] = useState(2.5);
@@ -62,7 +65,10 @@ export default function App() {
   
   return(
     <div>
-      <MemoDemo3 />
+      <RenderPropsDemo />
+      {/* <UseCallbackDemo2 /> */}
+      {/* <UseCallbackDemo1/> */}
+      {/* <MemoDemo3 /> */}
       {/* <MemoDemo2/> */}
       {/* <RefDemo /> */}
       {/* <CardDemo /> */}
